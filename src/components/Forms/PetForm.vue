@@ -27,8 +27,7 @@
 <script>
 
 import PopUp from '/src/components/Forms/PopUp.vue';
-
-const API_URL = "http://localhost:8088/pet";
+import { savePet } from '/src/service/BookingApi.js';
 
 
 
@@ -52,31 +51,8 @@ export default {
         this.modalTitle = 'Error!';
         this.modalBody = 'Complete todos los campos';
       } else {
-        const formData = {
-          name: this.name,
-          userid: this.document,
-        };
-
-        fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData),
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-            if (data.status == 500) {
-              this.modalTitle = 'Error!';
-              this.modalBody = data.message;
-            }
-            else {
-              this.modalTitle = 'Datos guardados correctamente!';
-              this.modalBody = 'Ahora crea las reservas';
-            }
-          }
-          );
+        
+        savePet(this.name, this.document, this.modalTitle, this.modalBody);
 
         this.name = '';
         this.document = '';

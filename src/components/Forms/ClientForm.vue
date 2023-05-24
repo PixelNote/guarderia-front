@@ -35,8 +35,8 @@
 <script>
 
 import PopUp from '/src/components/Forms/PopUp.vue';
+import { saveClient } from '/src/service/BookingApi.js';
 
-const API_URL = "http://localhost:8088/client";
 
 
 
@@ -70,24 +70,7 @@ export default {
 
     submitForm() {
 
-      const formData = {
-        name: this.name,
-        document: this.document,
-        address: this.address,
-        email: this.email
-      };
-
-      fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-        });
+      saveClient(this.name, this.document, this.address, this.email, this.modalTitle, this.modalBody);
 
 
       this.name = '';

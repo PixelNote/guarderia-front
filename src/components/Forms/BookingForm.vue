@@ -35,10 +35,7 @@
 <script>
 
 import PopUp from '/src/components/Forms/PopUp.vue';
-
-const API_URL = "http://localhost:8088/booking";
-
-
+import { saveBooking } from '/src/service/BookingApi.js';
 
 export default {
   components: {
@@ -62,35 +59,8 @@ export default {
         this.modalTitle = 'Error!';
         this.modalBody = 'Complete todos los campos';
       } else {
-        const formData = {
-          pet: this.pet,
-          document: this.document,
-          date: this.date,
-          time: this.time
-        };
 
-        console.log(JSON.stringify(formData));
-
-        fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData),
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-            if (data.status == 500) {
-              this.modalTitle = 'Error!';
-              this.modalBody = data.message;
-            }
-            else {
-              this.modalTitle = 'Datos guardados correctamente!';
-              this.modalBody = 'La reserva fue exitosa';
-            }
-          }
-          );
+        saveBooking(this.pet, this.document, this.date, this.time, this.modalTitle, this.modalBody);
 
         this.pet = '';
         this.document = '';
