@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar p-0 navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand fw-bold fs-2" href="#">Guardería Canina</a>
+        <a class="navbar-brand fw-bold fs-2" href="#">Bebitos Felices</a>
 
         <div class="navbar-nav mx-auto">
           <li class="nav-item" :class="{ active: activeTab === 'tab1' }" @click="changeTab('tab1')">
