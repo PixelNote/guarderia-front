@@ -110,3 +110,4 @@ export default {
   width: 400px;
 }</style>
 
+ 
