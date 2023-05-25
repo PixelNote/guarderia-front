@@ -1,4 +1,11 @@
-# guarderia-front
+# Bebitos Felices - Guarderia Canina, Proyecto Final
+
+## Integrantes
+* Daniela Alejandra Puerto
+* Yeyson Esteban Pulido
+* Andrés Felipe Jiménez 
+
+## Front-end Vue.JS
 
 This template should help get you started developing with Vue 3 in Vite.
 
